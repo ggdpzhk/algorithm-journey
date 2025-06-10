@@ -19,8 +19,9 @@ public class Code01_MergeSort {
 
 	public static int[] arr = new int[MAXN];
 
-	public static int[] help = new int[MAXN];
-
+	public static int[] help = new int[MAXN];//merge过程中的辅助数组
+	//arr[]和help[]是全局静态static变量，所以所有的方法都不用放参数位置。参数位没有也能直接访问到。
+	//使用全局静态变量能少些好多东西
 	public static int n;
 
 	public static void main(String[] args) throws IOException {
@@ -30,8 +31,8 @@ public class Code01_MergeSort {
 		in.nextToken();
 		n = (int) in.nval;
 		for (int i = 0; i < n; i++) {
-			in.nextToken();
-			arr[i] = (int) in.nval;
+			in.nextToken();//不断都数据，
+			arr[i] = (int) in.nval;//并放入arr数组
 		}
 		// mergeSort1(0, n - 1);
 		mergeSort2();
@@ -82,20 +83,22 @@ public class Code01_MergeSort {
 
 	// l....r 一共有n个数
 	// O(n)
+	//不是递归方法 
 	public static void merge(int l, int m, int r) {
-		int i = l;
-		int a = l;
-		int b = m + 1;
-		while (a <= m && b <= r) {
-			help[i++] = arr[a] <= arr[b] ? arr[a++] : arr[b++];
+		int i = l;//辅助数组help[]被填到了什么位置 
+		int a = l;//a是左边有序数组的指针
+		int b = m + 1;//b是右边有序数组的指针
+		while (a <= m && b <= r) {//如果左右两侧都没有耗尽的话
+			help[i++] = arr[a] <= arr[b] ? arr[a++] : arr[b++];//最经典的过程，谁小拷贝谁
 		}
-		// 左侧指针、右侧指针，必有一个越界、另一个不越界
+		// 左侧指针、右侧指针，必有一个越界、另一个不越界（所以下面两个while只会命中一个）
 		while (a <= m) {
 			help[i++] = arr[a++];
 		}
 		while (b <= r) {
 			help[i++] = arr[b++];
 		}
+		//至此，help[]的数字全部经过比较填写完成，限下面将其刷进原数组arr[]
 		for (i = l; i <= r; i++) {
 			arr[i] = help[i];
 		}
