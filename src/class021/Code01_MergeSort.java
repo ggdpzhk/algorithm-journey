@@ -96,12 +96,23 @@ public class Code01_MergeSort {
 			help[i++] = arr[a] <= arr[b] ? arr[a++] : arr[b++];//最经典的过程，谁小拷贝谁
 		}
 		// 左侧指针、右侧指针，必有一个越界、另一个不越界（所以下面两个while只会命中一个）
+		//逻辑：哪边没耗尽就继续拷贝
 		while (a <= m) {
 			help[i++] = arr[a++];
 		}
 		while (b <= r) {
 			help[i++] = arr[b++];
 		}
+		/*意义相同，下面是我写的，逻辑：哪边耗尽了就拷贝另一边
+	        while(a > m){
+  	          help[i++] = arr[b++];
+	        }
+	        while (b > r){
+	            help[i++] = arr[a++];
+        }*/
+
+
+		
 		//至此，help[]的数字全部经过比较填写完成，限下面将其刷进原数组arr[]
 		for (i = l; i <= r; i++) {
 			arr[i] = help[i];
