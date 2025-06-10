@@ -66,14 +66,17 @@ public class Code01_MergeSort {
 	// 空间复杂度O(n)
 	public static void mergeSort2() {
 		// 一共发生O(logn)次
-		for (int l, m, r, step = 1; step < n; step <<= 1) {
+		for (int l, m, r, step = 1; step < n; step <<= 1) { //step是步长，这里的位运算表示每次都乘2，写成乘2也行，但是位运算比乘法运算快一点，其实秀技
 			// 内部分组merge，时间复杂度O(n)
 			l = 0;
 			while (l < n) {
-				m = l + step - 1;
-				if (m + 1 >= n) {
+				m = l + step - 1;//0，，1，，2 这个步长是3	
+				if (m + 1 >= n) {//发现右边界的初始越界就break，就不用merge了
 					break;
 				}
+				//说明有右侧
+				//接下来求右侧的右边界，左边界是m+1
+				//左部分是的右边界是l+x-1,右部分和左部分是相等的长度，所以右部分的右边界是（拿l算为啥不拿m+1作为起始算？）l + 2x - 1，即l + (step << 1) - 1。但是呢有可能数组没有这么长了，所以两者取min为右边界值
 				r = Math.min(l + (step << 1) - 1, n - 1);
 				merge(l, m, r);
 				l = r + 1;
