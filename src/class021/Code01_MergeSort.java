@@ -64,9 +64,9 @@ public class Code01_MergeSort {
 	// 归并排序非递归版
 	// 时间复杂度O(n * logn)
 	// 空间复杂度O(n)
-	public static void mergeSort2() {
+	public static void mergeSort2() {//从左到右，按步长=1，2，4……排完序以后再merge，不是递归，是从头一遍又一遍。
+					//所以为什么不用传参数呢？数组是static，全局变量，那么直接方法里定义l，r，m即可
 		// 一共发生O(logn)次
-		//从左到右，按步长=1，2，4……排完序以后再merge，不是递归，是从头一遍又一遍
 		for (int l, m, r, step = 1; step < n; step <<= 1) { //step是步长，这里的位运算表示每次都乘2，写成乘2也行，但是位运算比乘法运算快一点，其实秀技
 			// 内部分组merge，时间复杂度O(n)
 			l = 0;
