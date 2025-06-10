@@ -31,7 +31,7 @@ public class Code01_MergeSort {
 		in.nextToken();
 		n = (int) in.nval;
 		for (int i = 0; i < n; i++) {
-			in.nextToken();//不断都数据，
+			in.nextToken();//不断读数据，
 			arr[i] = (int) in.nval;//并放入arr数组
 		}
 		// mergeSort1(0, n - 1);
@@ -50,7 +50,7 @@ public class Code01_MergeSort {
 	// T(n) = 2 * T(n/2) + O(n)
 	// a = 2, b = 2, c = 1
 	// 根据master公式，时间复杂度O(n * logn)
-	// 空间复杂度O(n)
+	// 空间复杂度O(n) (需要额外的辅助数组)
 	public static void mergeSort1(int l, int r) {
 		if (l == r) {
 			return;
@@ -83,7 +83,7 @@ public class Code01_MergeSort {
 
 	// l....r 一共有n个数
 	// O(n)
-	//不是递归方法 
+	//merge不是递归方法 
 	public static void merge(int l, int m, int r) {
 		int i = l;//辅助数组help[]被填到了什么位置 
 		int a = l;//a是左边有序数组的指针
