@@ -22,7 +22,7 @@ public class Code01_MergeSort {
 	public static int[] help = new int[MAXN];//merge过程中的辅助数组
 	//arr[]和help[]是全局静态static变量，所以所有的方法都不用放参数位置。参数位没有也能直接访问到。
 	//使用全局静态变量能少些好多东西
-	public static int n;
+	public static int n;//通过下面输入流的读入方式，n是arr的长度
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
