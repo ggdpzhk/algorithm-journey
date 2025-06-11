@@ -25,12 +25,13 @@ public class Code01_MergeSort {
 	public static int n;//通过下面输入流的读入方式，n是arr的长度
 
 	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StreamTokenizer in = new StreamTokenizer(br);
-		PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
-		in.nextToken();
-		n = (int) in.nval;
-		for (int i = 0; i < n; i++) {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));//创建BufferedReader，从标准输入流读取数据
+		StreamTokenizer in = new StreamTokenizer(br);//创建StreamTokenizer，解析数据
+		PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));//创建PrintWriter,从高效输出到标准输出
+		//一般第一个数都是大小，知道了大小然后下面循环读取具体的内容。（我就说为什么循环读了，为啥外面还要这么多余再来一次）
+		in.nextToken();//读取下一个标记（通常是数字或字符串）
+		n = (int) in.nval;// 将读取的数字赋值给变量n（表示数据个数）。  
+		for (int i = 0; i < n; i++) {// 循环读取n个数据
 			in.nextToken();//不断读数据，
 			arr[i] = (int) in.nval;//并放入arr数组
 		}
@@ -39,10 +40,10 @@ public class Code01_MergeSort {
 		for (int i = 0; i < n - 1; i++) {
 			out.print(arr[i] + " ");
 		}
-		out.println(arr[n - 1]);
-		out.flush();
-		out.close();
-		br.close();
+		out.println(arr[n - 1]);//输出到标准输出（即输出到控制台）（不是文件）
+		out.flush();//刷新输出缓冲区，确保所有内容都被写出
+		out.close();//关闭输出流
+		br.close();//关闭输入流
 	}
 
 	// 归并排序递归版
