@@ -117,6 +117,7 @@ public class Code01_MergeSort {
 
 		
 		//至此，help[]的数字全部经过比较填写完成，限下面将其刷进原数组arr[]
+		//一定要注意这里，我总是因为自动生成for循环，然后判断条件写不对
 		for (i = l; i <= r; i++) {
 			arr[i] = help[i];
 		}
