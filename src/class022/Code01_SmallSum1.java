@@ -39,7 +39,8 @@ public class Code01_SmallSum1 {
 		out.flush();
 		out.close();
 	}
-
+	
+	// 递归调用
 	// 结果比较大，用int会溢出的，所以返回long类型
 	// 特别注意溢出这个点，笔试常见坑
 	// 返回arr[l...r]范围上，小和的累加和，同时请把arr[l..r]变有序
@@ -56,8 +57,12 @@ public class Code01_SmallSum1 {
 	// arr[l...m] arr[m+1...r]
 	public static long merge(int l, int m, int r) {
 		// 统计部分
-		long ans = 0;
-		for (int j = m + 1, i = l, sum = 0; j <= r; j++) {
+		long ans = 0; 
+		// 4 6 7 7   5 6 6 8 
+		// i     m   j
+		
+		//不要看到for+while就以为复杂度很高，实际复杂度很低，因为其实就是左部分和右部分都滑了一遍  
+		for (int j = m + 1, i = l, sum = 0; j <= r; j++) {//i是左侧的遍历变量，j是右侧的遍历变量
 			while (i <= m && arr[i] <= arr[j]) {
 				sum += arr[i++];
 			}
