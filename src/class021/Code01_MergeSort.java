@@ -93,6 +93,8 @@ public class Code01_MergeSort {
 		int i = l;//辅助数组help[]被填到了什么位置 
 		int a = l;//a是左边有序数组的指针
 		int b = m + 1;//b是右边有序数组的指针
+
+		//左侧和右侧都分别有序，现在要做的是整体有序
 		while (a <= m && b <= r) {//如果左右两侧都没有耗尽的话
 			help[i++] = arr[a] <= arr[b] ? arr[a++] : arr[b++];//最经典的过程，谁小拷贝谁
 		}
