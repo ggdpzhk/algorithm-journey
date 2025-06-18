@@ -1,6 +1,7 @@
 package class022;
 
 // 小和问题，java版
+// 与归并排序的关系： 在归并排序的过程中加点功能
 // 测试链接 : https://www.nowcoder.com/practice/edfe05a1d45c4ea89101d936cac32469
 // 请同学们务必参考如下代码中关于输入、输出的处理
 // 这是输入输出处理效率很高的写法
@@ -44,7 +45,7 @@ public class Code01_SmallSum1 {
 	// 返回arr[l...r]范围上，小和的累加和，同时请把arr[l..r]变有序
 	// 时间复杂度O(n * logn)
 	public static long smallSum(int l, int r) {
-		if (l == r) {
+		if (l == r) {//base case
 			return 0;
 		}
 		int m = (l + r) / 2;
