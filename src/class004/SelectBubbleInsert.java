@@ -10,6 +10,7 @@ public class SelectBubbleInsert {
 	}
 
 	// 选择排序
+	//选择待排数据中最小的，与数组最左侧的数据进行交换
 	public static void selectionSort(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return;
@@ -25,7 +26,9 @@ public class SelectBubbleInsert {
 		}
 	}
 
-	// 冒泡排序
+	// 冒泡排序 
+	// 从第一个开始，两个两个比较，比较完第一轮，最大的位置会出现在最后，
+	// 从第一个开始，                     二  ，次大的位置会出现在倒数第二个
 	public static void bubbleSort(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return;
@@ -39,7 +42,8 @@ public class SelectBubbleInsert {
 		}
 	}
 
-	// 插入排序
+	// 插入排序 
+	// 像打扑克一样，一张一张地拿，从后往前比较，放在合适的位置，再拿下一张
 	public static void insertionSort(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return;
