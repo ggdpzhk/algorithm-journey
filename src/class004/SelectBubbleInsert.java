@@ -16,8 +16,8 @@ public class SelectBubbleInsert {
 			return;
 		}
 		for (int minIndex, i = 0; i < arr.length - 1; i++) {
-			minIndex = i;
-			for (int j = i + 1; j < arr.length; j++) {
+			minIndex = i;//因为每一次都会排好前面的位置，所以每次 都要重新给minIndex赋值； 然后数组剩余数字进行遍历，找出最小值然后交换
+			for (int j = i + 1; j < arr.length; j++) {//当 j = i 时，会无意义地比较 arr[i] 和 arr[minIndex]（此时 minIndex = i），即 arr[i] 和自己比。
 				if (arr[j] < arr[minIndex]) {
 					minIndex = j;
 				}
@@ -49,7 +49,7 @@ public class SelectBubbleInsert {
 			return;
 		}
 		for (int i = 1; i < arr.length; i++) {
-			for (int j = i - 1; j >= 0 && arr[j] > arr[j + 1]; j--) {
+			for (int j = i - 1; j >= 0 && arr[j] > arr[j + 1]; j--) {//j+1是新加入的牌，j+i 最多= i，i < arr.length,因此j绝对不会越界
 				swap(arr, j, j + 1);
 			}
 		}
