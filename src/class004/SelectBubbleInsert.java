@@ -2,6 +2,7 @@ package class004;
 
 public class SelectBubbleInsert {
 
+	// 三傻排序 因为时间复杂度都是n的平方 ，所以每个排序方法都是  两个嵌套的for循环
 	// 数组中交换i和j位置的数
 	public static void swap(int[] arr, int i, int j) {
 		int tmp = arr[i];
